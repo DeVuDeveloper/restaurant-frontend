@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-import { images } from '../../constants';
+import { images } from '../../items';
 
 const SubHeading = ({ title }) => (
   <div style={{ marginBottom: '1rem' }}>
