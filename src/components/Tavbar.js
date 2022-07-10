@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
@@ -7,79 +8,33 @@ import { NavLink } from 'react-router-dom';
 import Logout from './auth/Logout';
 import { checkAuth } from '../actions/auth';
 
-class Navbar extends React.Component {
-  componentDidMount() {
-    // this.props.dispatchCheckAuth();
-  }
-
-  renderAuthLinks() {
-    const { authChecked, loggedIn, currentUser } = this.props;
-    // if (authChecked) {
+const Tavbar = ({ loggedIn }) => {
+  const AuthLinks = () => {
     return loggedIn ? (
       <>
-        {currentUser.email}
         <Logout />
       </>
     ) : (
       <>
-        <NavLink
-          className="p-4 inline-block"
-          activeClassName="text-blue-900"
-          exact
-          to="/signup"
-        >
-          Sign Up
+        <NavLink exact to="/login">
+          <p className="p__opensans">Log In</p>
         </NavLink>
-        <NavLink
-          className="p-4 inline-block"
-          activeClassName="text-blue-900"
-          exact
-          to="/login"
-        >
-          Log In
+        <NavLink exact to="/signup">
+          <p className="p__opensans">Registration</p>
         </NavLink>
       </>
     );
-    // } else {
-    //   return null
-    // }
-  }
+  };
 
-  render() {
-    return (
-      <nav className="bg-blue-50 text-blue-500">
-        <div className="w-11/12 max-w-6xl mx-auto grid sm:grid-cols-3 md:grid-cols-4">
-          <div className="sm:col-span-2 md:col-span-3">
-            <NavLink
-              className="p-4 block sm:inline-block"
-              activeClassName="text-blue-900"
-              exact
-              to="/"
-            >
-              NormalRoute
-            </NavLink>
-            <NavLink
-              className="p-4 block sm:inline-block"
-              activeClassName="text-blue-900"
-              exact
-              to="/protected_route"
-            >
-              ProtectedRoute
-            </NavLink>
-          </div>
-          <div className="sm:text-right">
-            {this.renderAuthLinks()}
-          </div>
-        </div>
-      </nav>
-    );
-  }
-}
+  return <div className="sm:text-right">{AuthLinks()}</div>;
+};
 
-const mapStateToProps = ({ auth: { authChecked, loggedIn, currentUser } }) => ({ authChecked, loggedIn, currentUser });
+const mapStateToProps = ({ auth: { loggedIn } }) => ({
+  loggedIn,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchCheckAuth: () => dispatch(checkAuth()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Tavbar);

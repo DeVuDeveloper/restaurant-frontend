@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -13,9 +14,10 @@ const Logout = ({ dispatchLogoutUser }) => {
   };
 
   return (
-    <button className="p-4" onClick={handleClick}>
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <p onClick={handleClick} className="p__opensans">
       Logout
-    </button>
+    </p>
   );
 };
 

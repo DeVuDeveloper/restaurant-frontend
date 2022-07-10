@@ -25,15 +25,6 @@
   list-style: none;
 }
 
-.app__navbar-smallscreen_links li {
-  margin: 2rem;
-  cursor: pointer;
-  color: var(--color-golden);
-  font-size: 2rem;
-  text-align: center;
-  font-family: var(--font-base);
-}
-
 .app__navbar-links li {
   margin: 0 1rem;
   cursor: pointer;
