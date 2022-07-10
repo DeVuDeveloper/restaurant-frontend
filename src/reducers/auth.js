@@ -1,9 +1,9 @@
-import { AUTHENTICATED, NOT_AUTHENTICATED } from "../actions";
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../actions';
 
 const initialState = {
   authChecked: false,
   loggedIn: false,
-  currentUser: {}
+  currentUser: {},
 };
 
 export default function authReducer(state = initialState, action) {
@@ -18,7 +18,7 @@ export default function authReducer(state = initialState, action) {
       return {
         authChecked: true,
         loggedIn: false,
-        currentUser: {}
+        currentUser: {},
       };
     default:
       return state;

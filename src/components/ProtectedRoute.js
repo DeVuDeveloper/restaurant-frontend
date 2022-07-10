@@ -1,5 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
+/* eslint-disable react/prefer-stateless-function */
+import React from 'react';
+import { connect } from 'react-redux';
 
 class ProtectedRoute extends React.Component {
   render() {

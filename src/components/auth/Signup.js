@@ -1,16 +1,17 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/state-in-constructor */
 import React from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions/auth';
+import { signupUser } from '../../actions/auth';
 
-class Login extends React.Component {
+class Signup extends React.Component {
   state = {
     email: '',
     password: '',
-    error: false,
+    errors: { status: { message: '' } },
   };
 
   handleChange = (event) => {
@@ -23,9 +24,9 @@ class Login extends React.Component {
     event.preventDefault();
     const { email, password } = this.state;
     this.props
-      .dispatchLoginUser({ email, password })
+      .dispatchSignupUser({ email, password })
       .then(() => this.props.history.push('/'))
-      .catch(() => this.setState({ error: true }));
+      .catch((errors) => this.setState({ errors }));
   };
 
   render() {
@@ -34,8 +35,8 @@ class Login extends React.Component {
         onSubmit={this.handleSubmit}
         className="w-11/12 max-w-2xl mx-auto mt-8"
       >
-        <h1 className="font-bold text-3xl">Log In</h1>
-        <p className="h-8 text-red-400">{this.state.error && 'Invalid email or password'}</p>
+        <h1 className="font-bold text-3xl mb-2">Sign Up</h1>
+        <p className="h-8 text-red-400">{this.state.errors.status.message}</p>
         <fieldset>
           <label className="block uppercase mb-2" htmlFor="email">
             Email:
@@ -65,15 +66,17 @@ class Login extends React.Component {
         <input
           className="w-full text-center uppercase p-4 bg-blue-300 cursor-pointer mt-4"
           type="submit"
-          value="Log In"
+          value="Sign Up"
         />
       </form>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  dispatchLoginUser: (credentials) => dispatch(loginUser(credentials)),
-});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchSignupUser: (credentials) => dispatch(signupUser(credentials)),
+  };
+};
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Signup);
