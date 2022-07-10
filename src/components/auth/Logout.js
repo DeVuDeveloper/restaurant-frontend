@@ -15,7 +15,7 @@ const Logout = ({ dispatchLogoutUser }) => {
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <p onClick={handleClick} className="p__opensans">
+    <p onClick={handleClick}>
       Logout
     </p>
   );

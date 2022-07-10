@@ -13,6 +13,30 @@
   align-items: center;
 }
 
+.log-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.log-btn p {
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: 0.5s ease;
+  color: #fff;
+}
+
+.log-btn div {
+  width: 1px;
+  height: 30px;
+  background: var(--color-grey);
+}
+
+.log {
+  color: #fff;
+}
+
 .app__navbar-logo img {
   width: 150px;
 }
@@ -23,6 +47,12 @@
   justify-content: center;
   align-items: center;
   list-style: none;
+}
+
+.app__navbar-login p {
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: 0.5s ease;
 }
 
 .app__navbar-links li {
@@ -36,17 +66,11 @@
 
 .app__navbar-login {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
-.app__navbar-login a {
-  margin: 0 1rem;
-  text-decoration: none;
-  transition: 0.5s ease;
-}
-
-.app__navbar-login a:hover {
+.app__navbar-login p:hover {
   border-bottom: 1px solid var(--color-golden);
 }
 
@@ -87,6 +111,10 @@
 
 .app__navbar-smallscreen_links li:hover {
   color: var(--color-white);
+}
+
+.log-btn p:hover {
+  border-bottom: 1px solid var(--color-golden);
 }
 
 @media screen and (min-width: 2000px) {

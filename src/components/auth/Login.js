@@ -1,76 +1,129 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/state-in-constructor */
-import React from 'react';
-import { connect } from 'react-redux';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-sequences */
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, connect } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useHistory } from 'react-router-dom';
+import { Modal, Form } from 'antd';
+import { toast } from 'react-toastify';
 import { loginUser } from '../../actions/auth';
+import 'antd/dist/antd.css';
+import './login.css';
 
-class Login extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    error: false,
+const Login = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const history = useHistory();
+  const [message, setMessage] = useState();
+
+  const onSubmit = (data) => {
+    dispatch(loginUser(data))
+      .then(() => history.push('/'))
+      .catch(() => setMessage({ error: true }));
+    toast.success('Login');
+    history.push('/');
   };
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    this.props
-      .dispatchLoginUser({ email, password })
-      .then(() => this.props.history.push('/'))
-      .catch(() => this.setState({ error: true }));
-  };
-
-  render() {
+  const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
+    const [form] = Form.useForm();
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        className="w-11/12 max-w-2xl mx-auto mt-8"
+      <Modal
+        visible={visible}
+        title=""
+        footer={null}
+        bodyStyle={{
+          backgroundColor: 'rgb(29, 27, 27)',
+
+        }}
+        cancelText=""
+        onCancel={onCancel}
+        onOk={() => {
+          form.validateFields().then((values) => {
+            form.resetFields();
+            onCreate(values);
+          });
+        }}
       >
-        <h1 className="font-bold text-3xl">Log In</h1>
-        <p className="h-8 text-red-400">{this.state.error && 'Invalid email or password'}</p>
-        <fieldset>
-          <label className="block uppercase mb-2" htmlFor="email">
-            Email:
-          </label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            className="w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-        </fieldset>
-        <fieldset>
-          <label className="block uppercase mb-2" htmlFor="password">
-            Password:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            className="w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-        </fieldset>
-        <input
-          className="w-full text-center uppercase p-4 bg-blue-300 cursor-pointer mt-4"
-          type="submit"
-          value="Log In"
-        />
-      </form>
+        <p className="h-8 text-red-400">
+          {message && 'Invalid email or password'}
+        </p>
+        <form
+          className="mx-1 mx-md-4"
+          onSubmit={handleSubmit(onSubmit)}
+          method="post"
+        >
+          <div className="d-flex flex-row align-items-center mb-4">
+            <div className="form-outline flex-fill mb-0">
+              <input
+                type="email"
+                id="form3Example3c"
+                className="form-control"
+                placeholder="Email"
+                required
+                {...register('email', { required: true })}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex flex-row align-items-center mb-4">
+            <div className="form-outline flex-fill mb-0">
+              <input
+                type="password"
+                id="form3Example4c"
+                className="form-control"
+                placeholder="Password"
+                required
+                {...register('password', { required: true })}
+              />
+            </div>
+          </div>
+
+          <div className="">
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </div>
+        </form>
+      </Modal>
     );
-  }
-}
+  };
+
+  const CollectionsPage = () => {
+    const [visible, setVisible] = useState(false);
+
+    return (
+      <>
+        <div className="log-btn">
+          <p
+            className="p__opensans"
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Login
+          </p>
+        </div>
+        <CollectionCreateForm
+          visible={visible}
+          onCancel={() => {
+            setVisible(false);
+          }}
+        />
+      </>
+    );
+  };
+  return (
+    <div className="but">
+      <div className="kut">
+        <CollectionsPage />
+      </div>
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchLoginUser: (credentials) => dispatch(loginUser(credentials)),

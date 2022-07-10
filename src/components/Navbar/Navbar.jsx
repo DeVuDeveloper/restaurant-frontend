@@ -36,32 +36,14 @@ const Navbar = ({ loggedIn }) => {
       <div className="app__navbar-login">
         {loggedIn && (
           <NavLink exact to="/">
-            <p href="/login" className="p__opensans">
+            <p className="p__opensans">
               <Logout />
-            </p>
-          </NavLink>
-        )}
-
-        {!loggedIn && (
-          <NavLink exact to="/login">
-            <p href="/login" className="p__opensans">
-              Log In
-            </p>
-          </NavLink>
-        )}
-        <div />
-        {!loggedIn && (
-          <NavLink exact to="/signup">
-            <p href="signup" className="p__opensans">
-              Registration
             </p>
           </NavLink>
         )}
         <div />
         <NavLink exact to="/book_table">
-          <p href="/" className="p__opensans">
-            Book Table
-          </p>
+          <p className="p__opensans">Book Table</p>
         </NavLink>
       </div>
       <div className="app__navbar-smallscreen">

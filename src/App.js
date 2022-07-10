@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import BookTable from './components/BookTable';
-import Signup from './components/auth/Signup';
-import Login from './components/auth/Login';
 import withAuth from './components/auth/withAuth';
 
 function App() {
@@ -16,8 +14,6 @@ function App() {
             path="/book_table"
             component={withAuth(BookTable)}
           />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
         </Switch>
       </Router>
     </div>

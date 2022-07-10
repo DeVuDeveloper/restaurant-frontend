@@ -1,0 +1,18 @@
+.login-button {
+  background: #fff;
+  padding: 4px 14px;
+  border-radius: 5px;
+  border: none;
+  font-family: var(--font-base);
+  font-size: 14px;
+}
+
+.login-button:hover {
+  background: #fff;
+  color: #444141;
+  padding: 4px 16px;
+}
+
+.ant-modal-close-x {
+  color: #fff;
+}

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
+import Signbar from './Signbar/Signbar';
 
 import {
   AboutUs, Chef, FindUs, Footer, Gallery, Header, Intro, Laurels, SpecialMenu,
@@ -10,6 +11,7 @@ import './Home.css';
 const Home = () => (
   <div>
     <Navbar />
+    <Signbar />
     <Header />
     <AboutUs />
     <SpecialMenu />
