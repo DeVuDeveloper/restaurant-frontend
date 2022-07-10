@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -12,7 +13,7 @@ class Navbar extends React.Component {
   }
 
   renderAuthLinks() {
-    const { loggedIn, currentUser } = this.props;
+    const { authChecked, loggedIn, currentUser } = this.props;
     // if (authChecked) {
     return loggedIn ? (
       <>
