@@ -58,7 +58,7 @@ const Navbar = ({ loggedIn }) => {
           </NavLink>
         )}
         <div />
-        <NavLink exact to="/signup">
+        <NavLink exact to="/book_table">
           <p href="/" className="p__opensans">
             Book Table
           </p>
