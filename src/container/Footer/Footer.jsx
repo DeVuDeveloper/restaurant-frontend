@@ -19,9 +19,19 @@ const Footer = () => (
       </div>
 
       <div className="app__footer-links_logo">
-        <img src={images.gericht} alt="footer_logo" />
-        <p className="p__opensans">&quot;The best way to find yourself is to lose yourself in the service of others.&quot;</p>
-        <img src={images.spoon} className="spoon__img" style={{ marginTop: 15 }} alt="spoon" />
+        <div className="app__navbar-logo">
+          <h2>Restaurant</h2>
+        </div>
+        <p className="p__opensans">
+          &quot;The best way to find yourself is to lose yourself in the service
+          of others.&quot;
+        </p>
+        <img
+          src={images.spoon}
+          className="spoon__img"
+          style={{ marginTop: 15 }}
+          alt="spoon"
+        />
         <div className="app__footer-links_icons">
           <FiFacebook />
           <FiTwitter />
@@ -41,7 +51,6 @@ const Footer = () => (
     <div className="footer__copyright">
       <p className="p__opensans">2021 Gericht. All Rights reserved.</p>
     </div>
-
   </div>
 );
 
