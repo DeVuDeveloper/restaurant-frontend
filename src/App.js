@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import BookTable from './components/BookTable';
+import Reservations from './components/Reservations/Reservations';
+import AddReservation from './components/Reservations/AddReservation';
 import withAuth from './components/auth/withAuth';
 
 function App() {
@@ -11,9 +12,10 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route
             exact
-            path="/book_table"
-            component={withAuth(BookTable)}
+            path="/reservations"
+            component={withAuth(Reservations)}
           />
+          <Route path="/add_reservations" component={withAuth(AddReservation)} />
         </Switch>
       </Router>
     </div>

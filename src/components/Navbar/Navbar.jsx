@@ -46,7 +46,7 @@ const Navbar = ({ loggedIn, currentUser }) => {
           </NavLink>
         )}
         <div />
-        <NavLink exact to="/book_table">
+        <NavLink exact to="/add_reservations">
           <p className="p__opensans">Book Table</p>
         </NavLink>
       </div>
@@ -98,6 +98,7 @@ const Navbar = ({ loggedIn, currentUser }) => {
 };
 
 const mapStateToProps = ({ auth: { loggedIn, currentUser } }) => {
+  console.log(currentUser);
   return { loggedIn, currentUser };
 };
 
