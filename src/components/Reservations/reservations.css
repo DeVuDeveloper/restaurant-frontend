@@ -17,7 +17,7 @@ body {
 }
 
 .reservation-title h2 {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-base);
   font-size: 34px;
   font-weight: bolder;
   color: rgb(78, 76, 73);
@@ -32,28 +32,28 @@ body {
   margin: 100px auto 0 auto;
 }
 
-#cars {
+#table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
   transition: 0.3s;
 }
 
-#cars td,
-#cars th {
+#table td,
+#table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#cars tr:nth-child(even) {
+#table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#cars tr:hover {
+#table tr:hover {
   background-color: #ddd;
 }
 
-#cars th {
+#table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -72,7 +72,7 @@ body {
     margin: 100px 7px 0 7px;
   }
 
-  #cars {
+  #table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -80,23 +80,23 @@ body {
     padding: 0 15px;
   }
 
-  #cars td,
-  #cars th {
+  #table td,
+  #table th {
     border: 1px solid #ddd;
     padding: 8px;
     font-size: 2.3vw;
     font-weight: bolder;
   }
 
-  #cars tr:nth-child(even) {
+  #table tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
-  #cars tr:hover {
+  #table tr:hover {
     background-color: #ddd;
   }
 
-  #cars th {
+  #table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -113,5 +113,6 @@ body {
   .reservation-title h2 {
     font-size: 24px;
     margin-top: -30px;
+    font-family: var(--font-base);
   }
 }

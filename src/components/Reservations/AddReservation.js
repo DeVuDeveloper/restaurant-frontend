@@ -6,7 +6,6 @@ import { useDispatch, connect } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
-import Signbar from '../Signbar/Signbar';
 import Navbar from '../Navbar/Navbar';
 import { addReservationToAPI } from '../../reducers/reservations';
 import './addreservation.css';
@@ -16,7 +15,6 @@ const AddReservation = ({ currentUser }) => {
   const history = useHistory();
   return (
     <section className="form-wrapper">
-      <Signbar />
       <Navbar />
       <div className="back">
         <NavLink to="/">

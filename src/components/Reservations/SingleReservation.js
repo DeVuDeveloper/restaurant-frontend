@@ -12,10 +12,11 @@ const SingleReservation = (props) => {
   const dispatch = useDispatch();
   return (
     <section className="reservation">
-      <table id="cars">
+      <table id="table">
         <tbody>
           <tr>
             <th>User</th>
+            <th>Persones</th>
             <th>Date</th>
             <th>TIme</th>
           </tr>

@@ -8,8 +8,8 @@ a:-webkit-any-link {
 .form-wrapper {
   height: 100vh;
   background-image:
-    linear-gradient(rgb(152, 192, 42) 0.8%, rgba(0, 0, 0, 0.8)),
-    url(https://www.cnet.com/a/img/resize/b5bad9fc09bf6d76cf8b5db6bca7d68fc49cdcac/2016/12/14/8ea41d9d-2a76-4f35-9d9d-1ef472f7d9dc/car-photography-how-to.jpg?auto=webp&fit=crop&height=675&width=1200);
+    linear-gradient(rgb(27, 27, 26) 0.5%, rgba(0, 0, 0, 0.8)),
+    url("https://media.istockphoto.com/photos/valentines-day-dinner-picture-id1089175154?k=20&m=1089175154&s=612x612&w=0&h=68XxEhpawvhFVGeKF20GEYe5b8Wm-xLSKYGcJBj9B3w=");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
@@ -17,32 +17,32 @@ a:-webkit-any-link {
 }
 
 .back {
-  color: #fff;
+  color: #dcca87;
   padding: 20px;
   font-size: 30px;
 }
 
 .add-reservation-title {
-  font-size: 29px;
-  font-family: 'Lato', sans-serif;
+  font-size: 38px;
+  font-family: var(--font-base);
   letter-spacing: 10px;
-  color: #fff;
+  color: #dcca87;
   text-align: center;
   padding-top: 27vh;
 }
 
 .line {
-  border: 2px solid rgb(152, 192, 42);
+  border: 2px solid #dcca87;
   border-radius: 5px;
   width: 60%;
   margin: auto;
 }
 
 .reservation-description {
-  font-size: 21px;
-  font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  font-family: var(--font-base);
   font-weight: 900;
-  color: rgb(212, 203, 203);
+  color: #dcca87;
   text-align: center;
   margin-top: 30px;
   padding: 0 150px;
@@ -64,13 +64,24 @@ a:-webkit-any-link {
 }
 
 input[type='date'] {
-  background: rgb(152, 192, 42);
-  color: rgb(223, 213, 213);
+  background: rgb(27, 27, 26);
+  color: #dcca87;
   border-radius: 30px;
   font-size: 17px;
   font-weight: 800;
-  font-family: 'Lato', sans-serif;
-  border: 3px solid rgb(177, 171, 171);
+  font-family: var(--font-base);
+  border: 3px solid #dcca87;
+  padding: 12px 20px;
+}
+
+input[type='time'] {
+  background: rgb(27, 27, 26);
+  color: #dcca87;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 800;
+  font-family: var(--font-base);
+  border: 3px solid #dcca87;
   padding: 12px 20px;
 }
 
@@ -84,19 +95,29 @@ input[type='date']:focus {
     5px 5px,
     1.5em 1.5em;
   background-repeat: no-repeat;
-  border-color: rgb(149, 201, 8);
+  border-color: #dcca87;
+  outline: 0;
+}
+
+input[type='time']:focus {
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: #dcca87;
   outline: 0;
 }
 
 select {
-  background: rgb(152, 192, 42);
-  color: #fff;
+  background: rgb(27, 27, 26);
+  color: #dcca87;
   border-radius: 30px;
-  padding: 12px 50px;
-  border: 3px solid rgb(177, 171, 171);
+  padding: 15px 50px;
+  border: 3px solid #dcca87;
   background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(45deg, transparent 50%, #44433d 50%),
+    linear-gradient(135deg, #33322f 50%, transparent 50%),
     radial-gradient(#ddd 70%, transparent 72%);
   background-position:
     calc(100% - 20px) calc(1em + 2px),
@@ -128,7 +149,7 @@ select:focus {
     5px 5px,
     1.5em 1.5em;
   background-repeat: no-repeat;
-  border-color: rgb(149, 201, 8);
+  border-color: #dcca87;
   outline: 0;
 }
 
@@ -138,14 +159,14 @@ select:focus {
 }
 
 .add-reservation-btn {
-  background: #fff;
-  color: rgb(152, 192, 42);
+  background: rgb(27, 27, 26);
+  color: #dcca87;
   border-radius: 30px;
-  border: none;
+  border: 3px solid #dcca87;
   padding: 12px 20px;
   font-size: 17px;
   font-weight: 600;
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-base);
 }
 
 ::placeholder {
@@ -165,9 +186,9 @@ select:focus {
 @media screen and (max-width: 1025px) {
   .add-reservation-title {
     font-size: 27px;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-base);
     letter-spacing: 5px;
-    color: #fff;
+    color: #dcca87;
     text-align: center;
     padding-top: 17vh;
   }
@@ -182,6 +203,7 @@ select:focus {
 
   .reservations-text h3 {
     font-size: 22px;
+    font-family: var(--font-base);
   }
 
   .reservations-text h5 {
@@ -189,26 +211,26 @@ select:focus {
   }
 
   input[type='date'] {
-    padding: 5px 15px;
+    padding: 5px 25px;
+  }
+
+  input[type='time'] {
+    padding: 5px 37px;
   }
 
   select {
     padding: 8px 57px;
   }
 
-  .reservation-car-name {
-    padding: 8px 45px;
-  }
-
   .add-reservation-btn {
-    background: #fff;
-    color: rgb(152, 192, 42);
+    background: rgb(17, 17, 17);
+    color: #dcca87;
     border-radius: 30px;
-    border: none;
+    border: 3px solid #dcca87;
     padding: 7px 29px;
     font-size: 17px;
     font-weight: 600;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-base);
   }
 }
 
