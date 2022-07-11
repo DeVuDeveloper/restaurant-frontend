@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { checkAuth } from '../../actions/auth';
 import LoadingSpinner from '../LoadingSpinner';
 import Login from './Login';
+import './with.css';
 
 function withAuth(WrappedComponent) {
   class Wrapper extends React.Component {
@@ -18,10 +19,10 @@ function withAuth(WrappedComponent) {
         return <LoadingSpinner />;
       } if (!this.props.loggedIn) {
         return (
-          <>
+          <div className="warnning">
             <p className="w-11/12 max-w-2xl mx-auto my-4 text-red-500">You need to login to view this page.</p>
             <Login />
-          </>
+          </div>
         );
       }
       return <WrappedComponent {...this.props} />;

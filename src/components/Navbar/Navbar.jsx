@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
@@ -7,7 +8,6 @@ import { connect } from 'react-redux';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import Logout from '../auth/Logout';
-import images from '../../items/images';
 import './Navbar.css';
 
 const Navbar = ({ loggedIn, currentUser }) => {
@@ -15,7 +15,7 @@ const Navbar = ({ loggedIn, currentUser }) => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.gericht} alt="app__logo" />
+        <h2>Restaurant</h2>
       </div>
       <ul className="app__navbar-links">
         <li className="p__opensans">
@@ -34,7 +34,9 @@ const Navbar = ({ loggedIn, currentUser }) => {
           <a href="#contact">Contact</a>
         </li>
         <li className="p__opensans">
-          <a href="/reservations">Reservstions</a>
+          <NavLink exact to="/reservations">
+            <a className="p__opensans">Reservations</a>
+          </NavLink>
         </li>
       </ul>
       <div className="app__navbar-login">

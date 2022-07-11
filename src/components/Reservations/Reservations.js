@@ -16,8 +16,8 @@ function Reservations() {
   }, [dispatch]);
   return (
     <section>
-      <Signbar />
       <Navbar />
+      <Signbar />
       <div className="my-reservations">
         <div className="table-reservations">
           <div className="reservation-title">

@@ -13,6 +13,12 @@
   align-items: center;
 }
 
+.app__navbar-logo h2 {
+  font-size: 30px;
+  font-family: var(--font-base);
+  color: var(--color-golden);
+}
+
 .log-btn {
   display: flex;
   justify-content: space-between;

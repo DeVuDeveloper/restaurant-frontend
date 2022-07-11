@@ -26,7 +26,9 @@ const SingleReservation = (props) => {
         <h2 className="reservation-day">{reservation.day}</h2>
       </div>
       <div className="table-reservation">
-        <h2 className="reservation-clock">{reservation.clock}</h2>
+        <h2 className="reservation-clock">
+          {reservation.clock}
+        </h2>
       </div>
       <div className="">
         <button
