@@ -3,18 +3,7 @@
 <div id="top"></div>
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/VuDej/restaurant-frontend">
-    <img src="./src/img/RentACar.gif" alt="Logo" width="200" height="150">
-  </a>
-
-  <h1 align="center">Rent A  Car Reac-Rails</h1>
-
-  <p align="center">
-    A car rental website
-    <br />
-
-
-
+  
 <a href="https://https://github.com/VuDej/restaurant-frontend#readme"><strong>Explore the docs »</strong></a>
 <br />
 <br />
