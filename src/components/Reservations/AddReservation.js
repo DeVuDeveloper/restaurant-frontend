@@ -6,7 +6,6 @@ import { useDispatch, connect } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
-import Navbar from '../Navbar/Navbar';
 import { addReservationToAPI } from '../../reducers/reservations';
 import './addreservation.css';
 
@@ -15,7 +14,6 @@ const AddReservation = ({ currentUser }) => {
   const history = useHistory();
   return (
     <section className="form-wrapper">
-      <Navbar />
       <div className="back">
         <NavLink to="/">
           <TiArrowBackOutline className="back-button" />
@@ -109,7 +107,6 @@ const AddReservation = ({ currentUser }) => {
   );
 };
 const mapStateToProps = ({ auth: { currentUser } }) => {
-  console.log(currentUser);
   return { currentUser };
 };
 

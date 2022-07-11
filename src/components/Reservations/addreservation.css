@@ -235,10 +235,6 @@ select:focus {
 }
 
 @media screen and (max-width: 680px) {
-  .back {
-    display: none;
-  }
-
   .reservation-description {
     display: none;
   }

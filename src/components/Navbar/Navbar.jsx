@@ -33,6 +33,9 @@ const Navbar = ({ loggedIn, currentUser }) => {
         <li className="p__opensans">
           <a href="#contact">Contact</a>
         </li>
+        <li className="p__opensans">
+          <a href="/reservations">Reservstions</a>
+        </li>
       </ul>
       <div className="app__navbar-login">
         {loggedIn && (
@@ -57,7 +60,7 @@ const Navbar = ({ loggedIn, currentUser }) => {
           onClick={() => setToggleMenu(true)}
         />
         {toggleMenu && (
-          <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
+          <div className="app__navbar-smallscreen_overlay flex__center slide-bottom mobile">
             <MdOutlineRestaurantMenu
               fontSize={27}
               className="overlay__close"
@@ -98,7 +101,6 @@ const Navbar = ({ loggedIn, currentUser }) => {
 };
 
 const mapStateToProps = ({ auth: { loggedIn, currentUser } }) => {
-  console.log(currentUser);
   return { loggedIn, currentUser };
 };
 
