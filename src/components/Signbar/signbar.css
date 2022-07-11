@@ -1,0 +1,10 @@
+.signbar {
+  display: flex;
+  background: var(--color-black);
+  padding-left: 10px;
+}
+
+.usermail {
+  color: #fff;
+  padding-left: 10px;
+}

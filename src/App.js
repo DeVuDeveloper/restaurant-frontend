@@ -1,25 +1,21 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import NormalRoute from './components/NormalRoute';
-import ProtectedRoute from './components/ProtectedRoute';
-import Signup from './components/auth/Signup';
-import Login from './components/auth/Login';
+import Home from './components/Home';
+import Reservations from './components/Reservations/Reservations';
+import AddReservation from './components/Reservations/AddReservation';
 import withAuth from './components/auth/withAuth';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Switch>
-          <Route exact path="/" component={NormalRoute} />
+          <Route exact path="/" component={Home} />
           <Route
             exact
-            path="/protected_route"
-            component={withAuth(ProtectedRoute)}
+            path="/reservations"
+            component={withAuth(Reservations)}
           />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/add_reservations" component={withAuth(AddReservation)} />
         </Switch>
       </Router>
     </div>
