@@ -1,5 +1,7 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable curly */
+/* eslint-disable nonblock-statement-body-position */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
@@ -19,8 +21,16 @@ const Signup = () => {
   const history = useHistory();
   function formData(event) {
     const data = new FormData();
+    data.append('user[name]', event.target.name.value);
     data.append('user[email]', event.target.email.value);
     data.append('user[password]', event.target.password.value);
+    data.append(
+      'user[password_confirmation]',
+      event.target.password_confirmation.value,
+    );
+    if (event.target.image.files.length !== 0)
+      data.append('user[image]', event.target.image.files[0]);
+    return data;
   }
 
   const OnSubmit = async (event) => {
@@ -30,18 +40,15 @@ const Signup = () => {
     if (response) event.target.reset();
     history.push('/home');
     toast.success('Signup');
+    window.location.reload(true);
   };
   const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
     return (
       <Modal
         visible={visible}
-        title=""
-        footer={null}
-        bodyStyle={{
-          backgroundColor: 'rgb(29, 27, 27)',
-        }}
-        cancelText=""
+        title="Sign Up"
+        cancelText="Cancel"
         onCancel={onCancel}
         onOk={() => {
           form.validateFields().then((values) => {
@@ -55,6 +62,32 @@ const Signup = () => {
           onSubmit={(e) => OnSubmit(e)}
           method="post"
         >
+          <div className="d-flex flex-row align-items-center mb-4">
+            <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+            <div className="form-outline flex-fill mb-0">
+              <input
+                type="name"
+                id="form3Example3c"
+                className="form-control"
+                placeholder="Name"
+                required
+                {...register('name', { required: true })}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex flex-row align-items-center mb-4">
+            <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+            <div className="form-outline flex-fill mb-0">
+              <input
+                type="file"
+                className="form-control file-user"
+                required
+                {...register('image', { required: true })}
+              />
+            </div>
+          </div>
+
           <div className="d-flex flex-row align-items-center mb-4">
             <i className="fas fa-envelope fa-lg me-3 fa-fw" />
             <div className="form-outline flex-fill mb-0">
@@ -96,8 +129,8 @@ const Signup = () => {
             </div>
           </div>
 
-          <div className="">
-            <button type="submit" className="signup-button">
+          <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <button type="submit" className="btn btn-primary btn-lg">
               Register
             </button>
           </div>
@@ -110,15 +143,15 @@ const Signup = () => {
     const [visible, setVisible] = useState(false);
 
     return (
-      <div>
-        <div className="log-btn">
+      <>
+        <div className="signup-btn">
           <p
             className="p__opensans"
             onClick={() => {
               setVisible(true);
             }}
           >
-            Signup
+            Registration
           </p>
         </div>
         <CollectionCreateForm
@@ -127,7 +160,7 @@ const Signup = () => {
             setVisible(false);
           }}
         />
-      </div>
+      </>
     );
   };
   return (
