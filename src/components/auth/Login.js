@@ -36,7 +36,7 @@ const Login = () => {
         title=""
         footer={null}
         bodyStyle={{
-          backgroundColor: 'rgb(29, 27, 27)',
+          backgroundColor: '#000',
 
         }}
         cancelText=""

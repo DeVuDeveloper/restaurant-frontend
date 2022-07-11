@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 import React from 'react';
@@ -9,7 +10,7 @@ import Logout from '../auth/Logout';
 import images from '../../items/images';
 import './Navbar.css';
 
-const Navbar = ({ loggedIn }) => {
+const Navbar = ({ loggedIn, currentUser }) => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
   return (
     <nav className="app__navbar">
@@ -34,6 +35,9 @@ const Navbar = ({ loggedIn }) => {
         </li>
       </ul>
       <div className="app__navbar-login">
+        {loggedIn && (
+          <img src={currentUser.image_url} className="user-photo" />
+        )}
         {loggedIn && (
           <NavLink exact to="/">
             <p className="p__opensans">
@@ -93,8 +97,8 @@ const Navbar = ({ loggedIn }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { loggedIn } }) => {
-  return { loggedIn };
+const mapStateToProps = ({ auth: { loggedIn, currentUser } }) => {
+  return { loggedIn, currentUser };
 };
 
 export default connect(mapStateToProps)(Navbar);

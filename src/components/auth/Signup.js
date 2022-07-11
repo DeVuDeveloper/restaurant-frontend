@@ -38,17 +38,20 @@ const Signup = () => {
     const data = formData(event);
     const response = await dispatch(signupUser(data));
     if (response) event.target.reset();
-    history.push('/home');
+    history.push('/');
     toast.success('Signup');
-    window.location.reload(true);
   };
   const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
     const [form] = Form.useForm();
     return (
       <Modal
         visible={visible}
-        title="Sign Up"
-        cancelText="Cancel"
+        title=""
+        footer={null}
+        bodyStyle={{
+          backgroundColor: '#000',
+        }}
+        cancelText=""
         onCancel={onCancel}
         onOk={() => {
           form.validateFields().then((values) => {
@@ -129,8 +132,8 @@ const Signup = () => {
             </div>
           </div>
 
-          <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-            <button type="submit" className="btn btn-primary btn-lg">
+          <div className="">
+            <button type="submit" className="signup-button">
               Register
             </button>
           </div>

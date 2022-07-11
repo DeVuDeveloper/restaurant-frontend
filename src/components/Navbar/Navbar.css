@@ -141,6 +141,12 @@
   border-bottom: 1px solid var(--color-golden);
 }
 
+.user-photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 @media screen and (min-width: 2000px) {
   .app__navbar-logo img {
     width: 210px;
