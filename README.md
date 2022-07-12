@@ -47,7 +47,7 @@
 
 ## Screenshots
 
-![Screenshot](src/img/screenshot.png)
+![Screenshot](src/assets/screenshot.png)
 
 ## Description 🏗️
 
