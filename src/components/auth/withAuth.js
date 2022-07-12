@@ -2,6 +2,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { TiArrowBackOutline } from 'react-icons/ti';
 import { connect } from 'react-redux';
 import { checkAuth } from '../../actions/auth';
 import LoadingSpinner from '../LoadingSpinner';
@@ -17,12 +19,22 @@ function withAuth(WrappedComponent) {
     render() {
       if (!this.props.authChecked) {
         return <LoadingSpinner />;
-      } if (!this.props.loggedIn) {
+      }
+      if (!this.props.loggedIn) {
         return (
-          <div className="warnning">
-            <p className="w-11/12 max-w-2xl mx-auto my-4 text-red-500">You need to login to view this page.</p>
-            <Login />
-          </div>
+          <>
+            <div className="warnning">
+              <div className="back">
+                <NavLink to="/">
+                  <TiArrowBackOutline className="back-button" />
+                </NavLink>
+              </div>
+              <p className="w-11/12 max-w-2xl mx-auto my-4 text-red-500">
+                You need to login to view this page.
+              </p>
+              <Login />
+            </div>
+          </>
         );
       }
       return <WrappedComponent {...this.props} />;
