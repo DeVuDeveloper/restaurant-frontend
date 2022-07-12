@@ -39,7 +39,7 @@ const AddReservation = ({ currentUser }) => {
             dispatch(addReservationToAPI(values));
             resetForm();
             setSubmitting(false);
-            history.push('/reservations');
+            history.push('/verify');
             toast.success('Reservation added succesfully');
           }}
         >
