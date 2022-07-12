@@ -18,9 +18,11 @@ const Navbar = ({ loggedIn, currentUser }) => {
         <h2>Restaurant</h2>
       </div>
       <ul className="app__navbar-links">
-        <li className="p__opensans">
-          <a href="#home">Home</a>
-        </li>
+        <NavLink exact to="/">
+          <li className="p__opensans">
+            <a href="#home">Home</a>
+          </li>
+        </NavLink>
         <li className="p__opensans">
           <a href="#about">About</a>
         </li>
@@ -40,9 +42,7 @@ const Navbar = ({ loggedIn, currentUser }) => {
         </li>
       </ul>
       <div className="app__navbar-login">
-        {loggedIn && (
-          <img src={currentUser.image_url} className="user-photo" />
-        )}
+        {loggedIn && <img src={currentUser.image_url} className="user-photo" />}
         {loggedIn && (
           <NavLink exact to="/">
             <p className="p__opensans">

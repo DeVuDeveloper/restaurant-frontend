@@ -1,6 +1,7 @@
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '../actions';
 
 const initialState = {
+  token: localStorage.getItem('token'),
   authChecked: false,
   loggedIn: false,
   currentUser: {},
